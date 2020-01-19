@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import AnswerBlock from "./AnswerBlock";
+import Toast from "./Toast";
 import { H1 } from "./Typography";
 
 type QuestionType = "WRITE_IN_FOREIGN" | "SELECT_MISSING_WORD";
@@ -19,6 +20,7 @@ const QuestionBlock: React.FC<Props> = () => (
   <Wrapper>
     <H1>Select the missing word</H1>
     <AnswerBlock answers={["ist", "bin"]} />
+    <Toast />
   </Wrapper>
 );
 
