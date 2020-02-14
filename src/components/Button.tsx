@@ -4,6 +4,7 @@ import React from "react";
 type Props = {
   text: string;
   primary?: boolean;
+  onClick: () => void;
 };
 
 type StyledProps = {
@@ -28,8 +29,8 @@ const StyledButton = styled.button<StyledProps>`
   }
 `;
 
-const Button: React.FC<Props> = ({ text, primary }) => (
-  <StyledButton primary={primary} type="button">
+const Button: React.FC<Props> = ({ text, primary, onClick }) => (
+  <StyledButton primary={primary} type="button" onClick={onClick}>
     {text}
   </StyledButton>
 );

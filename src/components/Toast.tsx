@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import React from "react";
-import Button from "./Button";
 
 const WrapperOuter = styled.div`
   padding: 40px;
@@ -16,12 +15,9 @@ const WrapperInner = styled.div`
   align-items: center;
 `;
 
-const Toast: React.FC = () => (
+const Toast: React.FC = ({ children }) => (
   <WrapperOuter>
-    <WrapperInner>
-      <Button text="SKIP" />
-      <Button primary text="CHECK" />
-    </WrapperInner>
+    <WrapperInner>{children}</WrapperInner>
   </WrapperOuter>
 );
 

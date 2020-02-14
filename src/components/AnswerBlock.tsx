@@ -1,8 +1,12 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import AnswerButton from "./AnswerButton";
 
-type Props = { answers: string[] };
+type Props = {
+  answers: string[];
+  selectedAnswer?: number;
+  selectAnswer: Dispatch<SetStateAction<number>>;
+};
 
 const Wrapper = styled.form`
   display: flex;
@@ -11,16 +15,19 @@ const Wrapper = styled.form`
   padding: 40px;
 `;
 
-const AnswerBlock: React.FC<Props> = ({ answers }) => {
-  const [selectedAnswer, setSelectedAnswer] = useState();
+const AnswerBlock: React.FC<Props> = ({
+  answers,
+  selectedAnswer,
+  selectAnswer
+}) => {
   return (
     <Wrapper>
-      {answers.map((answer, index) => (
+      {answers?.map((answer, index) => (
         <AnswerButton
           text={answer}
           value={(index + 1).toString()}
           checked={selectedAnswer === index + 1}
-          onClick={() => setSelectedAnswer(index + 1)}
+          onClick={() => selectAnswer(index + 1)}
         />
       ))}
     </Wrapper>
